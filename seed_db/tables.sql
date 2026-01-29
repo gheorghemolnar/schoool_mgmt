@@ -328,7 +328,7 @@ DECLARE
     _roll INTEGER;
 BEGIN
     _roleId = 3;
-    _userId := COALESCE((data ->>'userId')::INTEGER, NULL);
+    _userId := COALESCE((data ->>'id')::INTEGER, NULL);
     _name := COALESCE(data->>'name', NULL);
     _gender := COALESCE(data->>'gender', NULL);
     _phone := COALESCE(data->>'phone', NULL);
@@ -384,7 +384,6 @@ BEGIN
             SELECT _userId, true, 'Student added successfully', NULL;
         RETURN;
     END IF;
-
 
     --update user tables
     UPDATE users
